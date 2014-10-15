@@ -31,7 +31,7 @@ do
 	OTHERTIME=$(TZ=Europe/London date +%Z\=%H:%M)
 
         ONLINE="offline!"
-        CONUUID=$( nmcli con status | tail -n +2 | awk '{print $2}' )
+        CONUUID=$( nmcli -f uuid con status | tail -n +2 )
 	if [ "$CONUUID" != "" ]; then 
            IP="$(nmcli con status uuid $CONUUID | grep IP4.AD | awk '{print $4}' | cut -d\/ -f1)"
            ONLINE="online ($IP)"
