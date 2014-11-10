@@ -23,6 +23,11 @@ setxkbmap -layout fr -option ctrl:nocaps
 
 hash xscreensaver && xscreensaver -no-splash &
 hash iceweasel && iceweasel &
+pulseaudio --start
+xss-lock -- xscreensaver-command -lock &
+
+# start notification manager
+dunst -conf ~/.dunstrc &
 
 while true
 do
