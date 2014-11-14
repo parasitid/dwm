@@ -23,11 +23,17 @@ setxkbmap -layout fr -option ctrl:nocaps
 
 hash xscreensaver && xscreensaver -no-splash &
 hash iceweasel && iceweasel &
+hash chromium && chromium &
+
 pulseaudio --start
-xss-lock -- xscreensaver-command -lock &
+#warn ; there must be a pb since it highloads cpus temp.
+#xss-lock -- xscreensaver-command -lock &
 
 # start notification manager
 dunst -conf ~/.dunstrc &
+
+
+wpa_cli -a ~/tools/dwm/notify_wpa_status.sh &
 
 while true
 do
